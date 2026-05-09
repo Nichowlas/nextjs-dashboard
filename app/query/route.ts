@@ -7,10 +7,11 @@ async function listInvoices() {
     SELECT invoices.amount, customers.name
     FROM invoices
     JOIN customers ON invoices.customer_id = customers.id
-    WHERE invoices.amount = 666;
+    WHERE invoices.amount = 666
+    LIMIT 1; 
   `;
-
-  return data;
+  
+  return data[0]; 
 }
 
 export async function GET() {
